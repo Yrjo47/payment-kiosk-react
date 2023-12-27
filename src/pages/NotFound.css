@@ -1,0 +1,11 @@
+#not-found-page-wrapper {
+    display: grid;
+    place-content: center;
+    background-color: var(--light-green-background);
+}
+
+#not-found-page-header {
+    font-size: 6rem;
+    text-align: center;
+    color: var(--main-orange);
+}
