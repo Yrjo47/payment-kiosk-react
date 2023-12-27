@@ -1,0 +1,31 @@
+#final-screen-message-block {
+    display: grid;
+    place-content: center;
+}
+
+.final-screen-message-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.final-screen-image {
+    width: 20%;
+}
+
+#success-message {
+    font-size: 3rem;
+    margin-top: 32px;
+    color: #00d459;
+}
+
+#error-message {
+    font-size: 3rem;
+    margin-top: 32px;
+    color: #ff3b3b;
+}
+
+.message-text {
+    width: 600px;
+    text-align: center;
+}

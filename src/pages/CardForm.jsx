@@ -5,9 +5,9 @@ const CardForm = () => {
     return (
         <div id='card-form-wrapper'>
             <div id='card-form-container'>
-                <form id='payment-form' action=''>
-                    <h2 id='form-header'>Введите данные карты</h2>
-                    <div class='label-input-container'>
+                <form id='card-form' action=''>
+                    <h2 id='card-form-header'>Введите данные карты</h2>
+                    <div className='label-input-container'>
                         <label for='card-number-input'>
                             Введите номер карты
                         </label>
@@ -19,7 +19,10 @@ const CardForm = () => {
                         />
                     </div>
                     <div id='date-cvv-container'>
-                        <div class='label-input-container' id='date-container'>
+                        <div
+                            className='label-input-container'
+                            id='date-container'
+                        >
                             <label for='date-input'>
                                 Введите срок действия карты
                             </label>
@@ -38,7 +41,7 @@ const CardForm = () => {
                                 />
                             </div>
                         </div>
-                        <div class='label-input-container'>
+                        <div className='label-input-container'>
                             <label for='cvv-input'>Введите CVV-код карты</label>
                             <input
                                 type='text'
@@ -48,8 +51,8 @@ const CardForm = () => {
                             />
                         </div>
                     </div>
-                    <div id='button-container'>
-                        <button id='form-button'>Подтвердить</button>
+                    <div id='card-form-button-container'>
+                        <button id='card-form-button'>Подтвердить</button>
                     </div>
                 </form>
             </div>
