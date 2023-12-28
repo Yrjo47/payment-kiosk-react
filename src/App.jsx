@@ -12,7 +12,9 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path='/card' element={<CardForm />} />
             <Route path='/payment' element={<PaymentForm />} />
-            <Route path='/message' element={<FinalScreen />} />
+            <Route path='/message/success' element={<FinalScreen message={"Успешно"} />} />
+            <Route path='/message/error1' element={<FinalScreen message={"Проверьте данные карты"} />} />
+            <Route path='/message/error2' element={<FinalScreen message={"Срок действия карты истек"} />} />
             <Route path='*' element={<NotFound />} />
         </Routes>
     );

@@ -1,24 +1,34 @@
 import React, { useState } from "react";
 import "./CardForm.css";
 import { useCheckCardInfoMutation } from "../redux";
+import { useDispatch } from "react-redux";
+import {actions} from "../redux/cardNumberSlice"
+import { useNavigate } from 'react-router-dom';
 
 const CardForm = () => {
+
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const [number, setNumber] = useState("");
     const [date, setDate] = useState(0);
     const [cvv, setCvv] = useState("");
 
-    const [checkCardDetails, { isLoading }] = useCheckCardInfoMutation();
+    const [checkCardDetails, {isError}] = useCheckCardInfoMutation();
 
     const handleCheckCardDetails = async () => {
-        await checkCardDetails({
+        let response = await checkCardDetails({
             number: number,
             date: date,
             cvv: cvv,
         }).unwrap();
+        console.log(response);
+        navigate('/payment');
     };
 
     const changeNumber = (event) => {
         setNumber(event.target.value);
+        dispatch(actions.changeNumber(number));
     };
     const changeMonth = (event) => {
         setDate(date - (date % 10) + event.target.value);
