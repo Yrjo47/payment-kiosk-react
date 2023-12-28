@@ -5,7 +5,7 @@ const PaymentForm = () => {
     return (
         <div id='payment-form-wrapper' className='wrapper'>
             <div id='payment-form-container'>
-                <form id='payment-form' action=''>
+                <div id='payment-form'>
                     <h2 id='payment-form-header'>Оплата</h2>
                     <div className='label-input-container'>
                         <label id='PIN-label' for='card-number-input'>
@@ -22,7 +22,7 @@ const PaymentForm = () => {
                         <h2 id='payment-form-price'>К оплате 100.00 р</h2>
                         <button id='payment-form-button'>Оплатить</button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     );

@@ -1,21 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import "./CardForm.css";
+import { useCheckCardInfoMutation } from "../redux";
 
 const CardForm = () => {
+    const [number, setNumber] = useState("");
+    const [date, setDate] = useState(0);
+    const [cvv, setCvv] = useState("");
+
+    const [checkCardDetails, { isLoading }] = useCheckCardInfoMutation();
+
+    const handleCheckCardDetails = async () => {
+        await checkCardDetails({
+            number: number,
+            date: date,
+            cvv: cvv,
+        }).unwrap();
+    };
+
+    const changeNumber = (event) => {
+        setNumber(event.target.value);
+    };
+    const changeMonth = (event) => {
+        setDate(date - (date % 10) + event.target.value);
+    };
+    const changeYear = (event) => {
+        setDate((date % 10) + event.target.value * 100);
+    };
+    const changeCvv = (event) => {
+        setCvv(event.target.value);
+    };
+
     return (
         <div id='card-form-wrapper'>
             <div id='card-form-container'>
-                <form id='card-form' action=''>
+                <div id='card-form'>
                     <h2 id='card-form-header'>Введите данные карты</h2>
                     <div className='label-input-container'>
-                        <label for='card-number-input'>
-                            Введите номер карты
-                        </label>
+                        <label>Введите номер карты</label>
                         <input
                             id='card-number-input'
                             type='text'
                             placeholder='0000 0000 0000 0000'
-                            maxlength='16'
+                            maxLength='16'
+                            onChange={changeNumber}
                         />
                     </div>
                     <div id='date-cvv-container'>
@@ -23,38 +50,44 @@ const CardForm = () => {
                             className='label-input-container'
                             id='date-container'
                         >
-                            <label for='date-input'>
-                                Введите срок действия карты
-                            </label>
+                            <label>Введите срок действия карты</label>
                             <div id='date-container'>
                                 <input
                                     id='month-input'
                                     type='text'
-                                    maxlength='2'
+                                    maxLength='2'
                                     placeholder='MM'
+                                    onChange={changeMonth}
                                 />
                                 <input
                                     id='year-input'
                                     type='text'
-                                    maxlength='4'
+                                    maxLength='4'
                                     placeholder='YYYY'
+                                    onChange={changeYear}
                                 />
                             </div>
                         </div>
                         <div className='label-input-container'>
-                            <label for='cvv-input'>Введите CVV-код карты</label>
+                            <label>Введите CVV-код карты</label>
                             <input
                                 type='text'
                                 id='cvv-input'
                                 placeholder='000'
                                 maxLength={3}
+                                onChange={changeCvv}
                             />
                         </div>
                     </div>
                     <div id='card-form-button-container'>
-                        <button id='card-form-button'>Подтвердить</button>
+                        <button
+                            id='card-form-button'
+                            onClick={handleCheckCardDetails}
+                        >
+                            Подтвердить
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     );

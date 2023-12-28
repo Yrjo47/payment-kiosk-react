@@ -12,7 +12,7 @@ const FinalScreen = () => {
                     src={errorImage}
                     alt='signifies an error'
                 />
-                <h1 class='message-text' id='error-message'>
+                <h1 className='message-text' id='error-message'>
                     Ошибка при оплате! Проверьте данные.
                 </h1>
             </div>
@@ -22,7 +22,7 @@ const FinalScreen = () => {
                     src={successImage}
                     alt='signifies success operation'
                 />
-                <h1 class='message-text' id='success-message'>
+                <h1 className='message-text' id='success-message'>
                     Успешно
                 </h1>
             </div>
