@@ -1,3 +1,8 @@
+#final-screen-wrapper {
+    display: grid;
+    place-content: center;
+}
+
 #final-screen-message-block {
     display: grid;
     place-content: center;
